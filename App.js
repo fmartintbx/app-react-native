@@ -12,8 +12,8 @@ export default function App() {
     <View style={styles.container2} > 
       <Text>Bye World</Text>
       <TextInput style= {styles.textInput} placeholder = "prueba"/>
-      <TouchableOpacity> 
-        <Text style={btn.Alert}>Alert </Text> 
+      <TouchableOpacity style={styles.btnAlert} onpress={() => {alert("tocado")}}> 
+        <Text style={styles.btnText}>Alert </Text> 
        
       </TouchableOpacity>
     </View>
@@ -23,6 +23,10 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+  btnText:{ 
+    color:"#FFF"
+
+  },
   btnAlert:{ 
     backgroundColor:"#0000FF",
     color:"FFF",
