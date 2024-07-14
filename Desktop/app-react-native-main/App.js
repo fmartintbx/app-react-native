@@ -1,21 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import Botton from './components/botton';
 
 export default function App() {
   
   const [counter, setCounter] = useState(0);
-  var counter2 =0
-
+  
   const toIncreaseCounter = () => { 
     const newValue = counter + 1;
-    counter2= newValue
     setCounter(newValue);
   }
 
-  useEffect(() => { 
-     console.log(counter)
-  },)
+ 
 
   return (
     <>
@@ -27,17 +24,7 @@ export default function App() {
         <Text style={styles.textCounter}> 
           {counter}
         </Text>
-        <Text style={styles.textCounter}> 
-          {counter2}
-        </Text>
-        <TouchableOpacity 
-          style={styles.btnAlert} 
-          onPress={() => { 
-            toIncreaseCounter();
-          }}
-        > 
-          <Text style={styles.btnText}>Increase Counter</Text> 
-        </TouchableOpacity>
+       <Botton onPress= {toIncreaseCounter} text= "ToIncrease"></Botton>
       </View>
     </>
   );
