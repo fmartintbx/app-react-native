@@ -1,38 +1,67 @@
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 
 export default function App() {
   
-  const [counter, setCounter] = useState(0)
+  const [counter, setCounter] = useState(0);
+  var counter2 =0
+
+  const toIncreaseCounter = () => { 
+    const newValue = counter + 1;
+    counter2= newValue
+    setCounter(newValue);
+  }
+
+  useEffect(() => { 
+     console.log(counter)
+  },)
+
   return (
-    
     <>
-    <StatusBar style="auto" />
-    <View style={styles.container2} > 
-      <Text>Hello World! We create a counter</Text>
-      <TextInput style= {styles.textInput} placeholder = "prueba"/>
-      <TouchableOpacity style={styles.btnAlert} onpress={() => {alert("tocado")}}> 
-        <Text style={styles.btnText}>Alert </Text> 
-       
-      </TouchableOpacity>
-    </View>
+      <StatusBar style="auto" />
+      <View style={styles.container2}> 
+        <Text style={styles.textHelloWorld}> 
+          Hello World! We created a counter 
+        </Text>
+        <Text style={styles.textCounter}> 
+          {counter}
+        </Text>
+        <Text style={styles.textCounter}> 
+          {counter2}
+        </Text>
+        <TouchableOpacity 
+          style={styles.btnAlert} 
+          onPress={() => { 
+            toIncreaseCounter();
+          }}
+        > 
+          <Text style={styles.btnText}>Increase Counter</Text> 
+        </TouchableOpacity>
+      </View>
     </>
   );
-
 }
 
 const styles = StyleSheet.create({
-  btnText:{ 
-    color:"#FFF"
-
+  textHelloWorld: { 
+    fontSize: 20,
   },
-  btnAlert:{ 
-    backgroundColor:"#0000FF",
-    color:"FFF",
-    padding:15,
+
+  textCounter: { 
+    fontSize: 50,
+  },
+
+  btnText: { 
+    color: "#FFF",
+  },
+
+  btnAlert: { 
+    backgroundColor: "#0000FF",
+    color: "FFF",
+    padding: 15,
     margin: 10,
-    borderRadius:10
+    borderRadius: 10,
   },
 
   container: {
@@ -41,17 +70,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
   container2: {
     flex: 1,
     backgroundColor: 'gray',
     alignItems: 'center',
     justifyContent: 'center',
   },
-   textInput:{ 
-    borderColor:"#000",
+
+  textInput: { 
+    borderColor: "#000",
     borderWidth: 1,
-    padding:10,
-
-   }
-
+    padding: 10,
+  },
 });
+
