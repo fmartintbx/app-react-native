@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import Botton from './components/botton';
 
 export default function App() {
@@ -18,15 +18,20 @@ export default function App() {
     <>
       <StatusBar style="auto" />
       <View style={styles.container2}> 
+        <ScrollView> 
         <Text style={styles.textHelloWorld}> 
           Hello World! We created a counter 
         </Text>
         <Text style={styles.textCounter}> 
           {counter}
         </Text>
-       <Botton onPress= {toIncreaseCounter} text= "ToIncrease"></Botton>
-      </View>
-    </>
+        <Botton 
+            onPress= {toIncreaseCounter}
+            text= {"To Increase" + (counter + 1)}
+         />
+        </ScrollView>     
+      </View> 
+      </>
   );
 }
 

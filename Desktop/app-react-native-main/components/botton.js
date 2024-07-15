@@ -5,7 +5,8 @@ export default function Botton({onPress, text= "Boton"}) {
     
     useEffect( () => { 
         console.log("Render Botton")
-    })
+
+    }, [text])
 
     return (<>
         <TouchableOpacity style= {styles.btn} onPress= {onPress}>
